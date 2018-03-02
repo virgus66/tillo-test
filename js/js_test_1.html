@@ -1,0 +1,38 @@
+<html>
+<head>
+    <style>
+        * { font-family: Verdana,Geneva,sans-serif; }
+    </style>
+</head>
+<body>
+<h1>What is wrong with this JavaScript? How would you fix it?</h1>
+
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #007700">&lt;script </span><span style="color: #0000CC">type=</span><span style="background-color: #fff0f0">&quot;text/javascript&quot;</span><span style="color: #007700">&gt;</span>
+   <span style="color: #008800; font-weight: bold">var</span> prizes <span style="color: #333333">=</span> [<span style="background-color: #fff0f0">&#39;A Goldfish!&#39;</span>, <span style="background-color: #fff0f0">&#39;An iPhone!&#39;</span>, <span style="background-color: #fff0f0">&#39;A Cruise!&#39;</span>];
+   <span style="color: #008800; font-weight: bold">for</span> (<span style="color: #008800; font-weight: bold">var</span> btnNum <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>; btnNum <span style="color: #333333">&lt;</span> prizes.length; btnNum<span style="color: #333333">++</span>) {
+     <span style="color: #888888">// for each of our buttons, when the user clicks it...</span>
+     <span style="color: #007020">document</span>.getElementById(<span style="background-color: #fff0f0">&#39;btn-&#39;</span> <span style="color: #333333">+</span> btnNum).onclick <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">function</span>() {
+       <span style="color: #888888">// tell her what she&#39;s won!</span>
+       alert(prizes[btnNum]);
+     };
+   }
+<span style="color: #007700">&lt;/script&gt;</span>
+</pre></div>
+
+<p>Edit this file to correct the JavaScript.</p>
+<hr>
+<button id="btn-0">Button 1!</button>
+<button id="btn-1">Button 2!</button>
+<button id="btn-2">Button 3!</button>
+
+<script type="text/javascript">
+   var prizes = ['A Goldfish!', 'An iPhone!', 'A Cruise!'];
+   for (var btnNum = 0; btnNum < prizes.length; btnNum++) {
+     // for each of our buttons, when the user clicks it...
+     document.getElementById('btn-' + btnNum).onclick = function() {
+       // tell her what she's won!
+       alert(prizes[btnNum]);
+     };
+   }
+</script>
+</body>
