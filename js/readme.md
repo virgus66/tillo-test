@@ -1,6 +1,6 @@
-# Frontend Developer Task 2017
+# Frontend Developer Task 2018
 
-Please create your own GitHub repository and share it with us when you're finished.
+Please download/clone this repository and when you're complete, send the results back in a zip file.
 
 The aim of these is to test your approach to solving the problems.
 
