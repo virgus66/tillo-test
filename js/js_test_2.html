@@ -5,30 +5,60 @@
     </style>
 </head>
 <body>
-<h1>Creating "native" methods</h1>
+<h1>Creating additional methods</h1>
 
-<p>Define a repeatify function on the String object. The function accepts an integer that specifies how many times the
-    string has to be repeated. The function returns the string repeated the number of times specified. For example:</p>
+<p>Define two functions on the User class WITHOUT modifying the original class:</p>
+<ul>
+    <li>sayHello</li>
+    <li>sayGoodbye</li>
+</ul>
+<p>They can be implemented in any way you like.</p>
+<p>Clicking on the "hello" button should write 'Hello Reward Cloud' to the input field</p>
+<p>Clicking on the "goodbye" button should write 'Goodbye Reward Cloud' to the input field</p>
 
-<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">var</span> result <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&#39;hello&#39;</span>.repeatify(<span style="color: #0000DD; font-weight: bold">3</span>);
-</pre></div>
-
-<p>Should create a string hellohellohello and put it in the "output" text field.</p>
-
-<p>Edit this file to create the function.</p>
+<p>Edit this file to create the methods.</p>
 <hr>
-<button id="btn-run">Run</button><br>
-<label for="output">Output:</label><input type="text" id="output">
+<button id="btn-hello">hello</button><input type="text" id="hello"><br><br>
+
+<button id="btn-goodbye">goodbye</button><input type="text" id="goodbye">
 
 <script type="text/javascript">
-  function run() {
-      alert('Put your code here.');
-      // var result = 'hello'.repeatify(3);
-      // put the result in to the text field.
 
-  }
-  document.getElementById('btn-run').onclick = function() {
-      run()
-  };
+    class User {
+        constructor(name) {
+            this.name = name;
+        }
+
+        myNameIs() {
+            return this.name
+        }
+    }
+    var rc = new User('Reward Cloud')
+    
+    function hello() {
+        try {
+            document.getElementById('hello').value = rc.sayHello();
+        } catch(error) {
+            document.getElementById('hello').value = 'Method not found'
+        }
+        
+    }
+
+    function goodbye() {
+        try {
+            document.getElementById('goodbye').value = rc.sayGoodbye();
+        } catch(error) {
+            document.getElementById('goodbye').value = 'Method not found';
+        }
+        
+    }
+
+    document.getElementById('btn-hello').onclick = function() {
+        hello()
+    };
+
+    document.getElementById('btn-goodbye').onclick = function() {
+        goodbye()
+    };
 </script>
 </body>
