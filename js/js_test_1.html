@@ -27,7 +27,10 @@
 
 <script type="text/javascript">
    var prizes = ['A Goldfish!', 'An iPhone!', 'A Cruise!'];
-   for (var btnNum = 0; btnNum < prizes.length; btnNum++) {
+
+  console.log(prizes)
+
+   for (let btnNum = 0; btnNum < prizes.length; btnNum++) {
      // for each of our buttons, when the user clicks it...
      document.getElementById('btn-' + btnNum).onclick = function() {
        // tell her what she's won!

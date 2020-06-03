@@ -2,6 +2,9 @@
 <head>
     <style>
         * { font-family: Verdana,Geneva,sans-serif; }
+        table td {
+            text-align: center;
+        }
     </style>
 </head>
 <body>
@@ -17,21 +20,59 @@ Bonus: Use the tablesorter jQuery plugin to make the table sortable by the price
 
 <button id="btn-run">Run</button>
 
-<!-- Use this jquery link if you want
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
--->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.3/js/jquery.tablesorter.min.js" integrity="sha256-dtGH1XcAyKopMui5x20KnPxuGuSx9Rs6piJB/4Oqu6I=" crossorigin="anonymous"></script>
+
 <script>
     function run() {
-        alert('Put your code here.')
+        let url = 'https://raw.githubusercontent.com/RewardCloud/Interview2018/master/js/orders.json';
+        $.ajax({
+            url,
+            dataType: 'json',
+            success: function(res){
+                console.log(res.orders)
+                createTable(res.orders)
+                $("#orders").tablesorter({ 
+                    sortList: [[1,0]] // sorted ascendig by second column
+                });
+            }
+        });
     }
+
     document.getElementById('btn-run').onclick = function() {
         run()
     };
+
+    function createTable(orders) {
+        let columns = ['ID', 'Price', 'Customer Name', 'Customer Email', 'Customer Postcode']
+        let table_head = $('<thead></thead>')
+        let table_columns = $('<tr></tr>')
+
+        columns.forEach( column => table_columns.append(`<th>${column}</th>)`) )
+        table_head.append(table_columns)
+        $("#orders").append(table_head);
+
+        let table_body = $('<tbody></tbody>');
+        orders.forEach( order => {
+            let tr = $('<tr></tr>')
+                .append(`<td>${order.id}</td>`)
+                .append(`<td>${order.price} ${order.currency}</td>`)
+                .append(`<td>${order.customer.name.first} ${order.customer.name.last}</td>`)
+                .append(`<td>${order.customer.email}</td>`)
+                .append(`<td>${order.customer.billing_address.postcode}</td>`)
+
+            table_body.append(tr);
+        })
+
+        $("#orders").append(table_body);
+    }
 </script>
 
 
 <div id="result">
     <!-- Generate the table using JavaScript and add it to this div programmatically -->
 </div>
+
+<table id="orders"  class="tablesorter"></table>
 </body>
 </html>

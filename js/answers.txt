@@ -1,0 +1,19 @@
+js_test_1
+
+when assigning event listeners to the buttons in the for loop there was a problem that we ended up with three listeners that were
+indicating to the element with index 3, which doesn't exist in the array. The loop goes 3 times, and the fourth time it fails, 
+but the btnNum variable remains to be 3 and all listeners are trying to access it. By changing var to let when initialise the variable
+we give it a scope which is different for each iteration.
+Although the right approach will be to create just one listener which will listen for any button to be clicked and the prize id should be
+kept in separate attribute, like prize-id=0 and this parameter should be read and accessed. That will improve performance when we have
+multiple buttons on the website, and it's easier to unregister it while using any reactive framework and we are umounting component.
+
+
+js_test_2
+
+I'm not sure if this is the approach you expected. I'm happy to discuss it further.
+
+
+js_test_3
+
+I've focused on functionality and to finish all tasks rather than styles. 

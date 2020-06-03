@@ -1,0 +1,15 @@
+{
+  "name": "js",
+  "version": "1.0.0",
+  "description": "Please download/clone this repository and when you're complete, send the results back in a zip file.",
+  "main": "index.js",
+  "dependencies": {
+    "tablesorter": "^2.31.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

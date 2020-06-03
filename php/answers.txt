@@ -1,0 +1,20 @@
+To count the total amount of orders first I'm trying to get the file context and iterate trough every element increasing the
+right field in the $total array. It's good to notice that there is just one iteration trought each element which is very effective
+and gives us time complexity of O(n)
+
+For this particular example I found using IF statements more practical than switch, as it's easier to read nested conditions.
+
+To count free orders I'm using equal comparison operator (==) and taking advantage that php is automatically casting the string
+to a float number. That default behaviour can be disabled, and if it will be then I should cast all the strings to floats.
+
+Then I'm checking if the order was made in GBP. Just in case someone put the currency manually I first cast the string to upper case
+as a good practice. Inside this condition I'm increasing number of orders and sum in total array accordingly, and then checking if
+the price was larger than 100, again taking advantage of php string to number automatical casting.
+
+In the last IF statement I'm checking if the order shipping address is in essex, converting the incomming string to lower case,
+for the same reason as with the currency, and in the nested condition I'm checking for the currency.
+
+If the file will fail to load the Exeption will be thrown and suspend the script execution, that exception should be properly handled.
+
+If I have more time I will definitelly make it a class, f.e. OrdersFileReader, load the file in the constructor and use
+different methods for logic and outputting the message and make $total array as an object property.
